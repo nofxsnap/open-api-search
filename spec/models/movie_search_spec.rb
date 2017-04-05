@@ -23,4 +23,9 @@ describe MovieSearch do
     expect(MovieSearch.all.count).to be == 0
   end
 
+  it "should return recent results" do
+    MovieSearch.add_or_increment("logan")
+    results = MovieSearch.get_recent_results(1)
+    expect(results.count).to be == 1
+  end
 end

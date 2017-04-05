@@ -11,6 +11,6 @@ class HomeController < ApplicationController
     end
 
     # Just return the 50 most recent movie searches
-    @past_searches = MovieSearch.all.order(updated_at: :desc).limit(50)
+    @past_searches = MovieSearch.get_recent_results(50)
   end
 end

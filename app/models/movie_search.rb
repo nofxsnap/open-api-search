@@ -16,4 +16,8 @@ class MovieSearch < ActiveRecord::Base
       })
     end
   end
+
+  def self.get_recent_results(number_of_results)
+    MovieSearch.all.order(updated_at: :desc).limit(number_of_results)
+  end
 end
