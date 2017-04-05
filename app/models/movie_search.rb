@@ -1,4 +1,6 @@
 class MovieSearch < ActiveRecord::Base
+  validates :search_term, presence: true, length: { maximum: 250 }
+
   def self.add_or_increment(search_term)
     movie_search = MovieSearch.where(search_term: search_term).first
 

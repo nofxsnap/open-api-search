@@ -16,4 +16,11 @@ describe MovieSearch do
     MovieSearch.add_or_increment("logan")
     expect(MovieSearch.where(search_term: "logan").first.count).to be == 3
   end
+
+  it "should not allow a giant string for a search term" do
+    long_search_term = "logan" * 100
+    MovieSearch.add_or_increment(long_search_term)
+    expect(MovieSearch.all.count).to be == 0
+  end
+
 end
