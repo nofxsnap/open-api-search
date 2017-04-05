@@ -7,7 +7,7 @@
     <% end %>
 
     <% if @search_term.present? %>
-      <h4>Results for <%= @search_term %>:</h4>
+      <h4>Movie results for "<%= @search_term %>":</h4>
 
       <% if @search_results.present? %>
         <% @search_results.each do |result| %>
@@ -27,5 +27,12 @@
 <div class="right_side">
   <div class="pad_me margin_left">
     <h4>Most Recent Movie Searches</h4>
+    <% if @past_searches.present? %>
+      <% @past_searches.each do |result| %>
+        <div class="pad_me">
+          <%= link_to(result.search_term, controller: "home", q: result.search_term) %> - <%= result.count %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
