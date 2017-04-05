@@ -25,6 +25,7 @@ Create a regular DB user
   createuser bot
 
 Create the DB
+  createdb -Obot -Eutf8 open_api_search_test
   createdb -Obot -Eutf8 open_api_search_development
 
 Start the server
