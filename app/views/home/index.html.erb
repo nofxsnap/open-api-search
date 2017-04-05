@@ -1,1 +1,13 @@
-Hello World!
+<%= form_tag({controller: "home", action: "index"}, method: "get", class: "nifty_form") do %>
+  <%= label_tag(:q, "Search for a movie name:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @search_term.present? %>
+  You searched for <%= @search_term %>
+<% end %>
+
+<% if @search_results.present? %>
+  <%= @search_results %>
+<% end %>
