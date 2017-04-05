@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+.left_side {
+  float: left;
+  width: 75%;
+}
+
+.right_side {
+  float: right;
+  width: 25%;
+}
+
+.pad_me {
+  padding: 20px;
+}
+
+.margin_right {
+  margin-right: 40px;
+}
+
+.margin_left {
+  margin-left: 40px;
+}

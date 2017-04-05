@@ -1,13 +1,31 @@
-<%= form_tag({controller: "home", action: "index"}, method: "get", class: "nifty_form") do %>
-  <%= label_tag(:q, "Search for a movie name:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="left_side">
+  <div class="pad_me margin_right">
+    <%= form_tag({controller: "home", action: "index"}, method: "get") do %>
+      <%= label_tag(:q, "Search for a movie name:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
 
-<% if @search_term.present? %>
-  You searched for <%= @search_term %>
-<% end %>
+    <% if @search_term.present? %>
+      <h4>Results for <%= @search_term %>:</h4>
 
-<% if @search_results.present? %>
-  <%= @search_results %>
-<% end %>
+      <% if @search_results.present? %>
+        <% @search_results.each do |result| %>
+          <div class="pad_me">
+            <% if result[:Poster] != "N/A" %>
+              <%= image_tag result[:Poster], width: 100 %>
+            <% end %>
+            <%= result[:Title] %> - <%= result[:Year] %>
+          </div>
+        <% end %>
+      <% else %>
+        Sorry, no results found.
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="right_side">
+  <div class="pad_me margin_left">
+    <h4>Most Recent Movie Searches</h4>
+  </div>
+</div>
