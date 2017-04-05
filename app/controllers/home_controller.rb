@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
     if search_term.present?
       @search_term = search_term
-      @search_results = OpenMovieDatabase.movie_search(search_term)
+      @search_results = OpenMovieDatabase.movie_search(search_term)[:Search]
     end
   end
 end

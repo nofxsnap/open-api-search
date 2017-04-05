@@ -14,7 +14,7 @@ gem 'turbolinks'
 
 gem 'passenger'
 gem 'rest-client', '2.0.1'
-
+gem 'hashie'
 
 group :development, :test do
   gem 'pry'
