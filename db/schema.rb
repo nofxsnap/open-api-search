@@ -18,10 +18,9 @@ ActiveRecord::Schema.define(version: 20170405053349) do
 
   create_table "movie_searches", force: :cascade do |t|
     t.string   "search_term"
-    t.integer  "count"
-    t.datetime "last_searched"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "count",       default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
