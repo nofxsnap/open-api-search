@@ -9,5 +9,8 @@ class HomeController < ApplicationController
       @search_results = OpenMovieDatabase.movie_search(@search_term)[:Search]
       MovieSearch.add_or_increment(@search_term) if @search_results.present?
     end
+
+    # Just return the 50 most recent movie searches
+    @past_searches = MovieSearch.all.order(updated_at: :desc).limit(50)
   end
 end
